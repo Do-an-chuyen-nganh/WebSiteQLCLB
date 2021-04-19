@@ -1,0 +1,9 @@
+$permited = array('jpg', 'jpeg', 'png' , 'gif');
+$file_name = $FILES['image'] ['name'];
+$file_size = $FILES['image'] ['size'];
+$file_temp = $FILES['image'] ['tmp_name'];
+
+$div = explode('.', $file_name);
+$file_ext = strtolower(end($div));
+$unique_image = substr(md5(time()), 0, 10). '.' .$file_ext;
+$uploaded_image = "uploads/".$unique_image;
